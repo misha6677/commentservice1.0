@@ -1,0 +1,365 @@
+/* Reset и базовые стили */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f5f5f5;
+}
+
+.main {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.container {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.hr__line {
+  border-top: 1px solid #eee;
+  margin-bottom: 20px;
+}
+
+/* Шапка с сортировкой */
+.comments-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.comment-title {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.sort-options {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.custom-select {
+  position: relative;
+  display: flex;
+}
+
+.selected-option {
+  padding: 8px 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.select-wrapper {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 10;
+  display: none;
+  min-width: 200px;
+}
+
+.select-wrapper.show {
+  display: block;
+}
+
+.option {
+  padding: 10px 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.option:hover {
+  background-color: #f5f5f5;
+}
+
+.checkmark {
+  width: 16px;
+  height: 16px;
+  display: none;
+}
+
+.option.active .checkmark {
+  display: inline-block;
+}
+
+.arrow {
+  width: 16px;
+  height: 16px;
+  margin-left: 5px;
+  transition: transform 0.2s;
+}
+
+.arrow.rotated {
+  transform: rotate(180deg);
+}
+
+.favorites-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 16px;
+  color: #666;
+}
+
+.favorites-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Форма комментария */
+.comment__form {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.comment__form__avatar-container {
+  flex-shrink: 0;
+}
+
+.profile-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.comment__form-container {
+  flex-grow: 1;
+}
+
+.comment__form-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.comment__form-userName {
+  font-weight: 600;
+  color: #333;
+}
+
+.comment__form-limit {
+  font-size: 14px;
+  color: #999;
+}
+
+.comment__form-text {
+  width: 100%;
+  min-height: 100px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.comment__form-text:focus {
+  outline: none;
+  border-color: #4CAF50;
+}
+
+.comment__form-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comment__form-message {
+  font-size: 14px;
+  color: #f44336;
+  display: none;
+}
+
+.comment__form_tekst{
+  display: flex;
+  gap: 20px;
+}
+
+.comment__form-message.show {
+  display: block;
+}
+
+.comment__form-button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s;
+}
+
+.comment__form-button:hover {
+  background-color: #45a049;
+}
+
+.comment__form-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Список комментариев */
+.comments-container {
+  margin-top: 20px;
+}
+
+.comment {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding: 15px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.comment__avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.comment__content {
+  flex-grow: 1;
+}
+
+.comment__header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.comment__author {
+  font-weight: 600;
+  color: #333;
+}
+
+.comment__date {
+  font-size: 14px;
+  color: #999;
+}
+
+.comment__text {
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.comment__footer {
+  display: flex;
+  gap: 15px;
+}
+
+.comment__reply-button,
+.comment__favorite-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  color: #666;
+}
+
+.comment__favorite-button.active {
+  color: #F36223;
+}
+
+.comment_group{
+  display: flex;
+  gap: 15px;
+}
+
+.comment__rating {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.comment__rating-value {
+  font-weight: 600;
+  min-width: 20px;
+  text-align: center;
+}
+
+.comment__rating-up,
+.comment__rating-down {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.comment__rating-up:hover,
+.comment__rating-down:hover {
+  background-color: #f5f5f5;
+}
+
+.comment__rating-up.disabled,
+.comment__rating-down.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Ответы на комментарии */
+.comment--reply {
+  margin-left: 60px;
+  border-left: 2px solid #eee;
+  padding-left: 15px;
+}
+
+.comment__reply-to {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 5px;
+  font-style: italic;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .comments-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .comment__form {
+    flex-direction: column;
+  }
+  
+  .comment--reply {
+    margin-left: 30px;
+  }
+}

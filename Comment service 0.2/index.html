@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./reset.css">
+  <title>Система комментариев</title>
+</head>
+
+<body>
+  <main class="main">
+    <div class="container">
+      <div class="nav hr__line">
+        <div class="comments-header">
+          <h1 class="comment-title">Комментарии <span id="comment-count">(0)</span></h1>
+          <div class="sort-options">
+            <div class="custom-select">
+              <div class="selected-option">По дате</div>
+              <div class="select-wrapper">
+                <div class="option" data-value="date">
+                  <img class="checkmark" src="./img/checkMark.svg" alt="✓">
+                  По дате
+                </div>
+                <div class="option" data-value="rating">
+                  <img class="checkmark" src="./img/checkMark.svg" alt="✓">
+                  По количеству оценок
+                </div>
+                <div class="option" data-value="activity">
+                  <img class="checkmark" src="./img/checkMark.svg" alt="✓">
+                  По актуальности
+                </div>
+                <div class="option" data-value="replies">
+                  <img class="checkmark" src="./img/checkMark.svg" alt="✓">
+                  По количеству ответов
+                </div>
+              </div>
+              <img class="arrow" src="./img/Arrow 1.svg" alt="▼" id="sort-arrow">
+            </div>
+            <button class="favorites-toggle">
+              <img class="favorites-icon" src="./img/heart.svg" alt="Избранное">
+              Избранное
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <form class="comment__form">
+        <div class="comment__form__avatar-container">
+          <img class="profile-img" src="./img/avatars/Mask group.png" alt="Аватар">
+        </div>
+        <div class="comment__form-container">
+          <div class="comment__form-header">
+            <p class="comment__form-userName">Максим Авдеенко</p>
+            <span class="comment__form-limit">Макс. 1000 символов</span>
+          </div>
+          <div class="comment__form_tekst">
+            <textarea class="comment__form-text" placeholder="Введите текст сообщения..." required></textarea>
+            <div class="comment__form-footer">
+              <span class="comment__form-message">Слишком длинное сообщение</span>
+              <button class="comment__form-button" type="submit" disabled>Отправить</button>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="comments-container" id="comments-container"></div>
+    </div>
+  </main>
+  <script type="module" src="./dist/index.js"></script>
+</body>
+
+</html>
